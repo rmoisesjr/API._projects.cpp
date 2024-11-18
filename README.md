@@ -1,2 +1,1 @@
-# API._projects.cpp
-Projects that uses API 
+// Project: Currency Converter using an API
