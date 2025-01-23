@@ -1,9 +1,18 @@
 // Project: Currency Converter using an API
 
-// 1. Find a free currency exchange API (e.g., exchangerate-api.com or similar).
-//    - Sign up and get an API key.
+//In this project I will use this external service that will work with my code to convert
+//from one money currency to another.
+//the API key for this service is cf10fcdb977ae0333a4fe20e
+//The API key will be my program ID card,when it communicates with the API(the external
+//service that its trying to reach in this case its a money currency converter)
+//without the API key the service will be denied.
 
 // 2. Set up your project in C++ and include a library like `libcurl` for HTTP requests.
+#include <iostream>
+#include <string>
+using namespace std;
+
+
 
 // 3. Write a function to send a request to the currency API.
 //    - Input: Base currency (e.g., USD) and target currency (e.g., EUR).
