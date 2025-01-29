@@ -11,6 +11,19 @@
 #include <iostream>
 #include <string>
 using namespace std;
+//In order to install and use 'libcurl' library, you typically need to first update the
+//available  package  and their version.
+//So we use the following command to accomplish this:
+//"sudo apt update && sudo apt install -y libcurl4-openssl-dev"
+//"sudo" command is to give me the temporary admin permission to dothis command.
+//"apt update" as we said earlier to update the package and its version.
+//"&&" is a operator that makes sure the first command its successful before procceding.
+//"apt install" install a specific packaage.
+//"-y"is to automatically confirm ,when the system prompts you to confirm the installed package
+//"libcur14-openssl-dev" this is the developtment package of libcurl(which is needed
+//to run the libcurl command)
+//after we run the command we should be able to code and use the libcurl command.
+#include <curl/curl.h>
 
 
 
