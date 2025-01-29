@@ -22,14 +22,36 @@ using namespace std;
 //"-y"is to automatically confirm ,when the system prompts you to confirm the installed package
 //"libcur14-openssl-dev" this is the developtment package of libcurl(which is needed
 //to run the libcurl command)
-//after we run the command we should be able to code and use the libcurl command.
+//after we run the command we should be able to code and use the "libcurl" command.
 #include <curl/curl.h>
+//next we will write a function that will collect the API response ,which will be in JSON format and is 
+//a HTTP response.
+//the following code defines the function "writeCallback",which comes from the "libcurl" library.to
+//handle HTTP response.
 
+//"size_t" tells us "writeCallback" will return a number that represents how many bytes it has worked
+//with. this is important because, it makes sure the program handles sizes or counts of data 
+//safely and efficiently, without errors.
+//"writeCallback" function isfrom the "libcurl" library is used to handle HTTP responses coming from
+//a server.
+//"void* contents" is used to hold any type of data without knowing exactly what it is ahead of time.
+//called "contents"
+//"size_t size" in this context this will list the size in bytes from the response that the function
+//"writeCallback" will receive.
+//"size_t nmeb" this will also show how many pieces of data the server sent back.from the "writeCallback"
+//response.
+//"string* output"  is where we will stored the response from the server, using "writeCallback" function.
+size_t writeCallback(void*contents, size_t size, size_t nmenb, string output) 
+{ 
+    size_t totalSize = size * nmemb;
+    output->append((char*)contents, totalSize); //this will add the new  response to the string.
+    return totalSize;
+}
 
-
-// 3. Write a function to send a request to the currency API.
+// 3.   
 //    - Input: Base currency (e.g., USD) and target currency (e.g., EUR).
 //    - Output: Conversion rate from the API.
+
 
 // 4. Create a menu for the user.
 //    - Ask the user for the base currency.
