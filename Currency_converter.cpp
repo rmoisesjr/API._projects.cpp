@@ -24,27 +24,33 @@ using namespace std;
 //to run the libcurl command)
 //after we run the command we should be able to code and use the "libcurl" command.
 #include <curl/curl.h>
-//next we will write a function that will collect the API response ,which will be in JSON format and is 
+//Next we will write a function that will collect the API response ,which will be in JSON format and is 
 //a HTTP response.
 //the following code defines the function "writeCallback",which comes from the "libcurl" library.to
 //handle HTTP response.
 
 //"size_t" tells us "writeCallback" will return a number that represents how many bytes it has worked
-//with. this is important because, it makes sure the program handles sizes or counts of data 
+//with. This is important because, it makes sure the program handles sizes or counts of data 
 //safely and efficiently, without errors.
-//"writeCallback" function isfrom the "libcurl" library is used to handle HTTP responses coming from
+//"writeCallback" function is from the "libcurl" library is used to handle HTTP responses coming from
 //a server.
 //"void* contents" is used to hold any type of data without knowing exactly what it is ahead of time.
 //called "contents"
 //"size_t size" in this context this will list the size in bytes from the response that the function
 //"writeCallback" will receive.
-//"size_t nmeb" this will also show how many pieces of data the server sent back.from the "writeCallback"
+//"size_t nmemb" this will also show how many pieces of data the server sent back.from the "writeCallback"
 //response.
-//"string* output"  is where we will stored the response from the server, using "writeCallback" function.
-size_t writeCallback(void*contents, size_t size, size_t nmenb, string output) 
+//"string* output" is where we will stored the response from the server, using "writeCallback" function.
+size_t writeCallback(void*contents, size_t size, size_t nmemb, string* output) 
 { 
+//"size_t totalSize" is a variable that will have the output of the multiplication of the "size"(how big each chunk is) and "nmemb"(how many chunks
+//there are).
     size_t totalSize = size * nmemb;
-    output->append((char*)contents, totalSize); //this will add the new  response to the string.
+//The function "->append" takes the data and adds it to the "output" string.The "char" is used to convert the data received from the server,
+// which is in the form of a "void*" pointer, to text.The "void*" pointer was previously considered unknown or of an unspecified type.And totalSize
+//tells us the how much data to add which we calculated earlier.
+    output->append((char*)contents, totalSize); 
+//the function return tells us how much bytes we just worked with and that the callback has succesful processed all data.
     return totalSize;
 }
 
