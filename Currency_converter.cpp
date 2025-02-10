@@ -53,8 +53,8 @@ size_t writeCallback(void*contents, size_t size, size_t nmemb, string* output)
 //the function return tells us how much bytes we just worked with and that the callback has succesful processed all data.
     return totalSize;
 }
-
-// 3.   
+//Now we will  create a function "getExchangeRate" to send a GET request to the currency API.
+void getExchangeRate(const)
 //    - Input: Base currency (e.g., USD) and target currency (e.g., EUR).
 //    - Output: Conversion rate from the API.
 
